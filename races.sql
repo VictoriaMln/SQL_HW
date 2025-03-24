@@ -1,6 +1,6 @@
 -- База данных 2 . Автомобильные гонки
 
--- Скрипты создания таблиц базы MySQL
+-- Скрипт создания таблиц базы MySQL
 -- Создание таблицы Classes
 CREATE TABLE Classes (
     class VARCHAR(100) NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE Results (
     FOREIGN KEY (race) REFERENCES Races(name)
 );
 
--- Скрипты наполнения базы данными
+-- Скрипт наполнения базы данными
 -- Вставка данных в таблицу Classes
 INSERT INTO Classes (class, type, country, numDoors, engineSize, weight) VALUES
 ('SportsCar', 'Racing', 'USA', 2, 3.5, 1500),
