@@ -85,18 +85,18 @@ INSERT INTO Bicycle (serial_number, model, gear_count, price, type) VALUES
 
 -- Решение:
 SELECT 
-	vehicle.maker,
+  vehicle.maker,
   motorcycle.model
 FROM 
-	Motorcycle
+  Motorcycle
 JOIN 
-	vehicle on motorcycle.model = vehicle.model
+  vehicle on motorcycle.model = vehicle.model
 WHERE
-	motorcycle.horsepower > 150 
+  motorcycle.horsepower > 150 
   && motorcycle.price < 20000 
   && motorcycle.type = 'Sport'
 ORDER BY 
-	motorcycle.horsepower DESC;
+  motorcycle.horsepower DESC;
 
 /*Задача 2
 Условие:
@@ -127,51 +127,51 @@ ORDER BY
 
 -- Решение:
 (SELECT 
-	vehicle.maker,
+  vehicle.maker,
   car.model,
   car.horsepower,
   car.engine_capacity,
   vehicle.type
 FROM 
-	car
+  car
 JOIN 
-	vehicle on car.model = vehicle.model
+  vehicle on car.model = vehicle.model
 WHERE
-	car.horsepower > 150 
+  car.horsepower > 150 
   && car.price < 35000 
   && car.engine_capacity < 3)
     
 UNION ALL
 
 (SELECT 
-	vehicle.maker,
+  vehicle.maker,
   motorcycle.model,
   motorcycle.horsepower,
   motorcycle.engine_capacity,
   vehicle.type
 FROM 
-	motorcycle
+  motorcycle
 JOIN 
-	vehicle on motorcycle.model = vehicle.model
+  vehicle on motorcycle.model = vehicle.model
 WHERE
-	motorcycle.horsepower > 150 
+  motorcycle.horsepower > 150 
   && motorcycle.price < 20000 
   && motorcycle.engine_capacity < 1.5)
     
 UNION ALL
 
 (SELECT 
-	vehicle.maker,
+  vehicle.maker,
   bicycle.model,
   NULL AS horsepower,
   NULL AS engine_capacity,
   vehicle.type
 FROM 
-	bicycle
+  bicycle
 JOIN 
-	vehicle on bicycle.model = vehicle.model
+  vehicle on bicycle.model = vehicle.model
 WHERE
-	bicycle.gear_count > 18 
+  bicycle.gear_count > 18 
   && bicycle.price < 4000)
     
 ORDER BY horsepower DESC;
